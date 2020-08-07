@@ -21,7 +21,7 @@
 //
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
-// const cardContainer = document.querySelector(".cards-container");
+
 
 //data sample
 /*
@@ -36,13 +36,27 @@
 */
 
 
+const cardContainer = document.querySelector(".cards-container");
 
-//     //axios data request
-// axios.get("https://lambda-times-api.herokuapp.com/articles")
-// .then(function(response) {
-//     console.log(response);
-
-// const 
+    //axios data request
+axios.get("https://lambda-times-api.herokuapp.com/articles")
+.then(function(response) {
+    console.log(response);
+  
+const articleArray = response.data.articles;  // nodelist
+    console.log(articleArray);
+  
+const articleKeys = Object.values(articleArray);
+  
+articleKeys.forEach(function(data) {
+    data.forEach(function(cards) {
+        cardContainer.append(articleCard(cards));
+    });
+});
+})
+.catch(function(error) {
+    console.log("Error - fetch data failed", error);
+});
 
 
     //create elements
@@ -76,3 +90,11 @@ articleAuthor.append(articleImgContainer);
 articleImgContainer.append(articleImg);
 articleAuthor.append(authorName);
 
+
+    // text injection 
+articleTitle.textContent = article.headline;
+articleImg.src = article.authorPhoto;
+authorName.textContent = article.authorName;
+      
+    return articleCard;
+};

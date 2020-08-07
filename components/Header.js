@@ -15,6 +15,7 @@ function Header() {
     
     //create elements
 const headerDiv = document.createElement("div");
+
 const headerDate = document.createElement("span");
 const headerTitle = document.createElement("h1");
 const headerTemp = document.createElement("span");
