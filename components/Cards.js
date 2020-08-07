@@ -23,6 +23,19 @@
 
 // const cardContainer = document.querySelector(".cards-container");
 
+//data sample
+/*
+"articles": {
+    "javascript": [
+{
+    "id": "b6fa0928-e83e-4c9c-8dee-b5bb400dcd34",
+    "headline": "ES8: The Next Step in the Evolution of Javascript and What it Means For Your Projects",
+    "authorPhoto": "https://tk-assets.lambdaschool.com/08d1372e-e393-47f1-ac44-fcb7d0baf0e2_sir.jpg",
+    "authorName": "SIR RUFF'N'STUFF"
+},
+*/
+
+
 
 //     //axios data request
 // axios.get("https://lambda-times-api.herokuapp.com/articles")
@@ -30,3 +43,36 @@
 //     console.log(response);
 
 // const 
+
+
+    //create elements
+const articleCard = function(article) {
+
+const articleCard = document.createElement("div");
+const articleTitle = document.createElement("div");
+const articleAuthor = document.createElement("div");
+const articleImgContainer = document.createElement("div");
+const articleImg = document.createElement("img");
+const authorName = document.createElement("span");
+
+
+    //add classes/attributs/src
+articleCard.classList.add("card");
+articleTitle.classList.add("headline");
+articleAuthor.classList.add("author");
+articleImgContainer.classList.add("img-container");
+
+
+    //add event listner
+articleCard.addEventListener("click", function() {
+    console.log(article.headline);
+});
+
+
+    //attach elements - structure
+articleCard.append(articleTitle);
+articleCard.append(articleAuthor);
+articleAuthor.append(articleImgContainer);
+articleImgContainer.append(articleImg);
+articleAuthor.append(authorName);
+
